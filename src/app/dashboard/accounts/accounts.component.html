@@ -1,0 +1,86 @@
+<div class="customer-section" *ngIf="customerInfo">
+    <div class="row">
+        <div class="col col-6">
+            <div class="full-name">Welcome, {{ customerInfo.firstName }}!</div>
+            <div class="email">{{ customerInfo.email }}</div>
+        </div>
+        <div class="col col-6">
+            <div class="credit-score">Your credit score is {{ customerInfo.creditScore }}</div>
+        </div>
+    </div>
+</div>
+<div class="account-section">
+    <div class="side-menu">
+        <div class="menu-item{{ childContent === 'account-list' ? ' active' : '' }}" (click)="childContent = 'account-list'">Account List</div>
+        <div class="menu-item{{ childContent === 'account-book' ? ' active' : '' }}" (click)="childContent = 'account-book'">Account Book</div>
+    </div>
+    <div class="main">
+        <div class="main-content" *ngIf="childContent === 'account-list'">
+            <mat-table *ngIf="accountsSource" #table [dataSource]="accountsSource" class="account-list" matSort>
+                <!-- Position Column -->
+                <ng-container matColumnDef="accountId">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let account"> {{account.accountId}} </mat-cell>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="accountName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let account">{{account.accountName}}</mat-cell>
+                </ng-container>
+                <!-- Weight Column -->
+                <ng-container matColumnDef="balance">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Balance</mat-header-cell>
+                    <mat-cell *matCellDef="let account">${{account.balance}}</mat-cell>
+                </ng-container>
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="isDefault">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Default?</mat-header-cell>
+                    <mat-cell *matCellDef="let account">{{account.isDefault === 'Y' ? 'Yes' : 'No'}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="isActivated">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Activated?</mat-header-cell>
+                    <mat-cell *matCellDef="let account">{{account.isActivated === 'Y' ? 'Yes' : 'No'}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="maturityDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Maturity Date</mat-header-cell>
+                    <mat-cell *matCellDef="let account"> {{account.savingAccount && account.savingAccount.maturityDate ? account.savingAccount.maturityDate : '-'}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="interestRate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Interest Rate</mat-header-cell>
+                    <mat-cell *matCellDef="let account">{{account.savingAccount && account.savingAccount.interestRate ? account.savingAccount.interestRate + '%' : '-'}}</mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="accountsDisplayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: accountsDisplayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #accountsPaginator [pageSize]="10"></mat-paginator>
+        </div>
+        <div class="main-content" *ngIf="childContent === 'account-book'">
+            <div class="actions">
+                <button class="btn btn-primary action" (click)="openAddItemDialog()" mat-button>Add new item</button>
+            </div>
+            <mat-table *ngIf="accountBookSource" #table [dataSource]="accountBookSource" class="account-book" matSort>
+                <ng-container matColumnDef="id">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+                    <mat-cell *matCellDef="let item"> {{item.id}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="itemName">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let item">{{item.itemName}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="account">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Account Number</mat-header-cell>
+                    <mat-cell *matCellDef="let item">{{item.account}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+                    <mat-cell *matCellDef="let item">
+                        <button mat-button class="btn btn-primary" (click)="deleteItem(item.id)">Del</button>
+                    </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="accountBookDisplayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: accountBookDisplayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #accountBookPaginator [pageSize]="10"></mat-paginator>
+        </div>
+    </div>
+</div>

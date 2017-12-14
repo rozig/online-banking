@@ -1,0 +1,101 @@
+$primary: #3E50B4;
+$accent: #FF3F80;
+$white: #FFFFFF;
+
+.customer-section {
+    background-color:$white;
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:5px;
+    padding:20px;
+    margin:10px 0;
+    display:block;
+    width:100%;
+    .row {
+        overflow:hidden;
+        display:block;
+        width:100%;
+        .col {
+            position:relative;
+            display:block;
+            float:left;
+            padding:0 30px;
+            &.col-6 {
+                width:50%;
+            }
+            .full-name {
+                color:rgba(0,0,0,0.53);
+                font-size:30px;
+            }
+            .email {
+                font-weight:bold;
+                padding:10px 0;
+            }
+            .credit-score {
+                position:relative;
+                text-align:right;
+                margin:10px 0;
+            }
+        }
+    }
+}
+.account-section {
+    display:block;
+    position:relative;
+    width:100%;
+    .side-menu {
+        border:1px solid rgba(0,0,0,.12);
+        background-color:$white;
+        border-radius:5px;
+        overflow:hidden;
+        position:absolute;
+        display:block;
+        margin:10px 0;
+        width:300px;
+        z-index:2;
+        left:0;
+        top:0;
+        .menu-item {
+            padding:10px 30px 10px 40px;
+            -webkit-transition:all 0.5s;
+            -moz-transition:all 0.5s;
+            -ms-transition:all 0.5s;
+            -o-transition:all 0.5s;
+            transition:all 0.5s;
+            line-height:20px;
+            cursor:pointer;
+            display:block;
+            width:100%;
+            &:not(:last-child) {
+                border-bottom:1px solid rgba(0,0,0,.12);
+            }
+            &:hover, &.active {
+                background-color:$primary;
+                color:$white;
+            }
+        }
+    }
+    .main {
+        display:block;
+        position:relative;
+        margin:0;
+        padding:10px 0;
+        width:100%;
+        z-index:1;
+        padding-left:320px;
+        .main-content {
+            border:1px solid rgba(0,0,0,.12);
+            background-color:$white;
+            border-radius:5px;
+            .account-list {
+                background:none;
+                display:block;
+            }
+            .actions {
+                border-bottom:1px solid rgba(0, 0, 0, 0.12);
+                padding:20px;
+                display:block;
+                width:100%;
+            }
+        }
+    }
+}

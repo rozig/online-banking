@@ -1,0 +1,27 @@
+<div class="container dashboard">
+    <div class="top-navigation">
+        <div class="content">
+            <div class="menu left">
+                <a class="menu-item{{ router.url == '/dashboard/accounts' ? ' active' : '' }}" (click)="navigateTo('accounts')">My Accounts</a>
+                <a class="menu-item{{ router.url == '/dashboard/statement' ? ' active' : '' }}" (click)="navigateTo('statement')">Statement</a>
+                <a class="menu-item{{ router.url == '/dashboard/transaction' ? ' active' : '' }}" (click)="navigateTo('transaction')">Transaction</a>
+                <a class="menu-item{{ router.url == '/dashboard/requests' ? ' active' : '' }}" (click)="navigateTo('requests')">Requests</a>
+                <a class="menu-item{{ router.url == '/dashboard/exchange-rate' ? ' active' : '' }}" (click)="navigateTo('exchange-rate')">Exchange Rate</a>
+            </div>
+            <div class="menu right">
+                <div class="menu-item" (click)="logout()">Logout</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-content">
+            <div class="content">
+                <accounts [customerId]="customerId" *ngIf="isLoaded === true && router.url === '/dashboard/accounts'"></accounts>
+                <statement [customerId]="customerId" *ngIf="isLoaded === true && router.url === '/dashboard/statement'"></statement>
+                <transaction [customerId]="customerId" *ngIf="isLoaded === true && router.url === '/dashboard/transaction'"></transaction>
+                <requests [customerId]="customerId" *ngIf="isLoaded === true && router.url === '/dashboard/requests'"></requests>
+                <exchange-rate [customerId]="customerId" *ngIf="isLoaded === true && router.url === '/dashboard/exchange-rate'"></exchange-rate>
+            </div>
+        </div>
+    </div>
+</div>

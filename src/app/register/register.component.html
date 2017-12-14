@@ -1,0 +1,39 @@
+<div class="register-container">
+    <div class="register-wrapper">
+        <div class="header">
+            <div class="title">New Customer Request</div>
+        </div>
+        <div class="body">
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="firstName" placeholder="First Name">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="lastName" placeholder="Last Name">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="email" matInput [(ngModel)]="email" placeholder="E-Mail address">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="phoneNumber" placeholder="Phone Number">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="ssn" placeholder="Social Security Number">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input matInput [matDatepicker]="picker" placeholder="Choose your date of birth" [(ngModel)]="dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="monthlyIncome" placeholder="Monthly Income">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="text" matInput [(ngModel)]="creditScore" placeholder="Credit Score">
+            </mat-form-field>
+        </div>
+        <div class="footer">
+            <button class="btn btn-primary" (click)="register()" mat-button>Submit</button>
+            <button class="btn btn-primary" routerLink="/login" mat-button>Login</button>
+        </div>
+    </div>
+</div>

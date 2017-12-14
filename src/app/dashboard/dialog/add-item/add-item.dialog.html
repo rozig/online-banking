@@ -1,0 +1,19 @@
+<div class="dialog-container add-item">
+    <div class="dialog-header">
+        <div class="dialog-title">Add Item</div>
+        <div class="dialog-close">
+            <button mat-button mat-dialog-close>x</button>
+        </div>
+    </div>
+    <div class="dialog-body">
+        <div class="dialog-content">
+            <mat-form-field class="form-input">
+                <input matInput placeholder="Item name" [(ngModel)]="itemName">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input matInput placeholder="Account number" [(ngModel)]="accountNumber">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="submit()" class="dialog-submit">Add</button>
+        </div>
+    </div>
+</div>

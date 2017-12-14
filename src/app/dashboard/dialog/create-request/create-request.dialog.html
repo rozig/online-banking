@@ -1,0 +1,25 @@
+<div class="dialog-container create-request">
+    <div class="dialog-header">
+        <div class="dialog-title">Create Request</div>
+        <div class="dialog-close">
+            <button mat-button mat-dialog-close>x</button>
+        </div>
+    </div>
+    <div class="dialog-body">
+        <div class="dialog-content">
+            <mat-form-field class="form-input">
+                <mat-select placeholder="Request type" [(ngModel)]="requestType">
+                    <mat-option [value]="'CloseAccount'">Close Account</mat-option>
+                    <mat-option [value]="'OpenCheckingAccount'">Open New Checking Account</mat-option>
+                    <mat-option [value]="'OpenSavingAccount'">Open New Saving Account</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-input" *ngIf="requestType == 'CloseAccount'">
+                <mat-select placeholder="Select your account to close" [(ngModel)]="selectedAccount">
+                    <mat-option *ngFor="let account of accountList" [value]="account[0]">{{ account[1] }} - {{ account[0] }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="submit()" class="dialog-submit">Submit</button>
+        </div>
+    </div>
+</div>

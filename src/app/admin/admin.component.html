@@ -1,0 +1,21 @@
+<div class="container admin">
+    <div class="top-navigation">
+        <div class="content">
+            <div class="menu left">
+                <a class="menu-item{{ router.url == '/admin/requests' ? ' active' : '' }}" (click)="navigateTo('requests')">Requests</a>
+                <a class="menu-item{{ router.url == '/admin/exchange-rate' ? ' active' : '' }}" (click)="navigateTo('exchange-rate')">Exchange Rate</a>
+            </div>
+            <div class="menu right">
+                <div class="menu-item" (click)="logout()">Logout</div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="wrapper-content">
+            <div class="content">
+                <request [adminId]="adminId" *ngIf="isLoaded === true && router.url === '/admin/requests'"></request>
+                <exchange-rate [adminId]="adminId" *ngIf="isLoaded === true && router.url === '/admin/exchange-rate'"></exchange-rate>
+            </div>
+        </div>
+    </div>
+</div>

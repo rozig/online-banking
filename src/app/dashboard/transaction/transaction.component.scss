@@ -1,0 +1,27 @@
+$primary: #3E50B4;
+$accent: #FF3F80;
+$white: #FFFFFF;
+
+.transaction-section {
+    border:1px solid rgba(0,0,0,.12);
+    background-color:$white;
+    border-radius:5px;
+    position:relative;
+    display:block;
+    width:400px;
+    margin:40px auto;
+    padding:40px;
+    .form-input {
+        display:block;
+        width:100%;
+    }
+    .btn {
+        display:block;
+        width:100%;
+    }
+    .account-book-toggle {
+        margin-bottom:10px;
+        display:block;
+        width:100%;
+    }
+}

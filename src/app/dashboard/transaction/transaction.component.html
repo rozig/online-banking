@@ -1,0 +1,37 @@
+<div class="transaction-section">
+    <mat-form-field class="form-input">
+        <mat-select placeholder="Select a debit account" [(value)]="selectedAccount">
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let account of accountList" [value]="account[0]">
+                {{account[1]}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-slide-toggle class="account-book-toggle" [color]="'primary'" [checked]="false" [(ngModel)]="isAccountBook">Select account from account book</mat-slide-toggle>
+    <div *ngIf="isAccountBook">
+        <mat-form-field class="form-input">
+            <mat-select placeholder="Select an account" [(value)]="selectedAccountBook">
+                <mat-option>--</mat-option>
+                <mat-option *ngFor="let item of accountBook" [value]="item">
+                    {{ item.itemName }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div *ngIf="!isAccountBook">
+        <mat-form-field class="form-input">
+            <mat-select placeholder="Select a channel" [(value)]="selectedChannel">
+                <mat-option [value]="'ByMobileNumber'">By Phone Number</mat-option>
+                <mat-option [value]="'ByEmailId'">By Email</mat-option>
+                <mat-option [value]="'ByAccountId'">By Account Number</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-input">
+            <input matInput placeholder="Credit account" [(ngModel)]="creditAccount">
+        </mat-form-field>
+    </div>
+    <mat-form-field class="form-input">
+        <input matInput placeholder="Amount in USD" [(ngModel)]="amount">
+    </mat-form-field>
+    <button class="btn btn-primary" (click)="makeTransaction()" mat-button>Make Transaction</button>
+</div>

@@ -1,0 +1,24 @@
+<div class="dialog-container update-rate">
+    <div class="dialog-header">
+        <div class="dialog-title">Udate Currency Rate</div>
+        <div class="dialog-close">
+            <button mat-button mat-dialog-close>x</button>
+        </div>
+    </div>
+    <div class="dialog-body">
+        <div class="dialog-content">
+            <mat-form-field class="form-input">
+                <mat-select placeholder="Select Currency" [(ngModel)]="selectedCurrency">
+                    <mat-option *ngFor="let currency of currencyList" [value]="currency">{{ currency }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input matInput placeholder="Buy rate" [(ngModel)]="buyRate">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input matInput placeholder="Sell rate" [(ngModel)]="sellRate">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="submit()" class="dialog-submit">Submit</button>
+        </div>
+    </div>
+</div>

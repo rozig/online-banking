@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="logo">Online Banking</div>
+    <div class="login-wrapper">
+        <div class="header">
+            <div class="title">{{ type }} Login</div>
+        </div>
+        <div class="body">
+            <mat-form-field class="form-input">
+                <input type="email" matInput [(ngModel)]="email" placeholder="E-Mail address">
+            </mat-form-field>
+            <mat-form-field class="form-input">
+                <input type="password" matInput [(ngModel)]="password" placeholder="Enter your password">
+            </mat-form-field>
+        </div>
+        <div class="footer">
+            <button class="btn btn-primary" (click)="login()" mat-button>Login</button>
+            <button *ngIf="type == 'Customer'" class="btn btn-primary" routerLink="/register" mat-button>Become a customer</button>
+        </div>
+    </div>
+</div>
