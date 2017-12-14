@@ -25,7 +25,9 @@
                 <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
                     <mat-cell *matCellDef="let request">
-                        <button mat-button class="btn btn-primary" (click)="verifyRequest(request.id)">Verify</button>
+                        <button *ngIf="request.status == 'Pending'" mat-button class="btn btn-primary item-action" (click)="verifyRequest(request.id)">
+                            <mat-icon>done</mat-icon>
+                        </button>
                     </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="requestsDisplayedColumns"></mat-header-row>

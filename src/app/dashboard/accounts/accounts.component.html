@@ -11,8 +11,8 @@
 </div>
 <div class="account-section">
     <div class="side-menu">
-        <div class="menu-item{{ childContent === 'account-list' ? ' active' : '' }}" (click)="childContent = 'account-list'">Account List</div>
-        <div class="menu-item{{ childContent === 'account-book' ? ' active' : '' }}" (click)="childContent = 'account-book'">Account Book</div>
+        <div class="menu-item{{ childContent === 'account-list' ? ' active' : '' }}" (click)="childContent = 'account-list'"><mat-icon class="icon">list</mat-icon><div class="name">Account List</div></div>
+        <div class="menu-item{{ childContent === 'account-book' ? ' active' : '' }}" (click)="childContent = 'account-book'"><mat-icon class="icon">book</mat-icon><div class="name">Account Book</div></div>
     </div>
     <div class="main">
         <div class="main-content" *ngIf="childContent === 'account-list'">
@@ -74,7 +74,9 @@
                 <ng-container matColumnDef="actions">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
                     <mat-cell *matCellDef="let item">
-                        <button mat-button class="btn btn-primary" (click)="deleteItem(item.id)">Del</button>
+                        <button mat-button class="btn btn-danger item-action" (click)="deleteItem(item.id)">
+                            <mat-icon class="icon">delete</mat-icon>
+                        </button>
                     </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="accountBookDisplayedColumns"></mat-header-row>

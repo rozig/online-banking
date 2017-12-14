@@ -54,7 +54,7 @@ export class RequestsComponent implements OnInit {
         "requestId": requestId
       };
       this.bankService.deleteRequest(payload).then((results) => {
-        if(results.json().code === 422) {
+        if(results.json().code === 253) {
           this.getRequests(this.customerId);
           this.snackBar.open("Item deleted successfully", "", { duration: 2000 });
         }

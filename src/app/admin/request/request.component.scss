@@ -21,6 +21,10 @@ $white: #FFFFFF;
                 background:none;
                 display:block;
             }
+            .btn.mat-button.item-action {
+                min-width:36px;
+                padding:0;
+            }
         }
     }
 }

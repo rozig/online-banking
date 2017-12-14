@@ -27,6 +27,10 @@ $white: #FFFFFF;
                 display:block;
                 width:100%;
             }
+            .btn.mat-button.item-action {
+                min-width:36px;
+                padding:0;
+            }
         }
     }
 }

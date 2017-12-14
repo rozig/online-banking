@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
         };
         this.authService.register(user).then((data) => {
             if(data.json().code === 224) {
-                this.snackBar.open(data.json().data.message, '', {
+                this.snackBar.open("Your request successfully submitted.", '', {
                     duration: 2000
                 });
                 this.router.navigate(['/login']);

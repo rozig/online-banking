@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 $primary: #3E50B4;
+$danger: #c0392b;
 $accent: #FF3F80;
 $white: #FFFFFF;
 * {
@@ -17,6 +18,12 @@ body {
 }
 .btn-primary {
     background-color:$primary;
+    .mat-button-wrapper {
+        color:$white;
+    }
+}
+.btn-danger {
+    background-color:$danger;
     .mat-button-wrapper {
         color:$white;
     }
