@@ -4,7 +4,8 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class BankService {
-    private BASE_URL: string = 'http://localhost:8080';
+    // private BASE_URL: string = 'http://localhost:8080';
+    private BASE_URL: string = 'https://online-banking-mpp-service.herokuapp.com';
     private headers = new Headers({
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
